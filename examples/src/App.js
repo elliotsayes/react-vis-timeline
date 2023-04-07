@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Timeline from 'react-vis-timeline';
+import Timeline from 'react-lms-vis-timeline';
 import moment from 'moment';
 import './App.css';
 
