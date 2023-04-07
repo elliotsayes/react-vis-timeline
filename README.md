@@ -7,22 +7,24 @@ React component for the `vis-timeline` timeline module.
 
 ![example chart](https://github.com/visjs/vis-timeline/blob/master/docs/img/timeline.png)
 
+[vis-timeline documentation](https://visjs.github.io/vis-timeline/docs/timeline/)
+
 ## Installation
 
 ```
-npm install --save react-vis-timeline
+npm install --save react-lms-vis-timeline
 ```
 
 OR
 
 ```
-yarn add react-vis-timeline
+yarn add react-lms-vis-timeline
 ```
 
 ## Getting Started
 
 ```typescript
-import Timeline from 'react-vis-timeline'
+import Timeline from 'react-lms-vis-timeline'
 
 // https://visjs.github.io/vis-timeline/docs/timeline/#Configuration_Options
 
@@ -161,6 +163,6 @@ You can enable animation (when the options start/end values change) by passing a
 Import your custom CSS *after* you import the component from the module, e.g:
 
 ```typescript
-import Timeline from 'react-vis-timeline';
+import Timeline from 'react-lms-vis-timeline';
 import './my-custom-css.css';
 ```
