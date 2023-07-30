@@ -204,11 +204,11 @@ export class Timeline extends Component<Props, {}> {
 
 		this.timeline.setOptions(timelineOptions);
 
-		if (initialGroups?.length > 0) {
+		if (this.groups.length === 0 && initialGroups?.length > 0) {
 			this.groups.add(initialGroups);
 		}
 
-		if (initialItems?.length > 0) {
+		if (this.items.length === 0 && initialItems?.length > 0) {
 			this.items.add(initialItems);
 		}
 
