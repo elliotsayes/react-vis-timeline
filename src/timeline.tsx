@@ -99,6 +99,8 @@ export class Timeline extends Component<Props, {}> {
 	}
 
 	componentDidMount() {
+		this.init();
+
 		Object.defineProperty(this, 'timeline', {
 			value: new VisTimelineCtor(this.#ref.current, this.items, this.groups, this.props.options),
 			writable: false
@@ -110,8 +112,6 @@ export class Timeline extends Component<Props, {}> {
 				this.timeline.on(event, eventHandler);
 			}
 		}
-
-		this.init();
 	}
 
 	shouldComponentUpdate(nextProps: Props) {
