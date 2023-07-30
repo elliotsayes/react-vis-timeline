@@ -99,6 +99,13 @@ export class Timeline extends Component<Props, {}> {
 	}
 
 	componentDidMount() {
+		// check if timeline property is defined
+		console.log('timeline', this.timeline);
+		if (this.timeline) {
+			console.warn('react-vis-timeline: timeline property is already defined. returning');
+			return;
+		}
+
 		Object.defineProperty(this, 'timeline', {
 			value: new VisTimelineCtor(this.#ref.current, this.items, this.groups, this.props.options),
 			writable: false
