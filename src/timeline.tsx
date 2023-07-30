@@ -99,7 +99,15 @@ export class Timeline extends Component<Props, {}> {
 	}
 
 	componentDidMount() {
-		this.init();
+		if (this.groups.length === 0 && initialGroups?.length > 0) {
+			this.groups.add(initialGroups);
+		}
+
+		if (this.items.length === 0 && initialItems?.length > 0) {
+			this.items.add(initialItems);
+		}
+
+		this.updateSelection(selection, selectionOptions);
 
 		Object.defineProperty(this, 'timeline', {
 			value: new VisTimelineCtor(this.#ref.current, this.items, this.groups, this.props.options),
@@ -112,6 +120,8 @@ export class Timeline extends Component<Props, {}> {
 				this.timeline.on(event, eventHandler);
 			}
 		}
+
+		this.init();
 	}
 
 	shouldComponentUpdate(nextProps: Props) {
@@ -203,16 +213,6 @@ export class Timeline extends Component<Props, {}> {
 		}
 
 		this.timeline.setOptions(timelineOptions);
-
-		if (this.groups.length === 0 && initialGroups?.length > 0) {
-			this.groups.add(initialGroups);
-		}
-
-		if (this.items.length === 0 && initialItems?.length > 0) {
-			this.items.add(initialItems);
-		}
-
-		this.updateSelection(selection, selectionOptions);
 
 		if (currentTime) {
 			this.timeline.setCurrentTime(currentTime);
