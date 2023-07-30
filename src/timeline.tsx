@@ -99,8 +99,6 @@ export class Timeline extends Component<Props, {}> {
 	}
 
 	componentDidMount() {
-		const { initialItems, initialGroups, selection, selectionOptions = {} } = this.props;
-
 		if (this.groups.length === 0 && initialGroups?.length > 0) {
 			this.groups.add(initialGroups);
 		}
@@ -191,7 +189,16 @@ export class Timeline extends Component<Props, {}> {
 	}
 
 	init() {
-		const { options, customTimes, animate = true, currentTime } = this.props;
+		const {
+			initialItems,
+			initialGroups,
+			options,
+			selection,
+			selectionOptions = {},
+			customTimes,
+			animate = true,
+			currentTime
+		} = this.props;
 
 		let timelineOptions = options;
 
