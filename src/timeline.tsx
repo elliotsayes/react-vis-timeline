@@ -75,24 +75,10 @@ export class Timeline extends Component<Props, {}> {
 	);
 
 	public timeline: Readonly<VisTimeline>;
-	public readonly items: DataSet<TimelineItem>;
-	public readonly groups: DataSet<TimelineGroup>;
+	public readonly items: DataSet<TimelineItem> = new DataSet<TimelineItem>();
+	public readonly groups: DataSet<TimelineGroup> = new DataSet<TimelineGroup>();
 
 	#ref = React.createRef<HTMLDivElement>();
-
-	constructor(props: Props) {
-		super(props);
-
-		Object.defineProperty(this, 'items', {
-			value: new DataSet<TimelineItem>(),
-			writable: false
-		});
-
-		Object.defineProperty(this, 'groups', {
-			value: new DataSet<TimelineGroup>(),
-			writable: false
-		});
-	}
 
 	componentWillUnmount() {
 		this.timeline.destroy();
@@ -105,10 +91,7 @@ export class Timeline extends Component<Props, {}> {
 			this.items.add(initialItems);
 		}
 
-		Object.defineProperty(this, 'timeline', {
-			value: new VisTimelineCtor(this.#ref.current, this.items, this.groups, this.props.options),
-			writable: false
-		});
+		this.timeline = new VisTimelineCtor(this.#ref.current, this.items, this.groups, this.props.options);
 
 		for (const event of events) {
 			const eventHandler = this.props[`${event}Handler`];
