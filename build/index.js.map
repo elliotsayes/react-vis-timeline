@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","names":["_timeline","require"],"sources":["../src/index.tsx"],"sourcesContent":["export { Timeline as default } from './timeline';\n"],"mappings":";;;;;;;;;;;AAAA,IAAAA,SAAA,GAAAC,OAAA"}
